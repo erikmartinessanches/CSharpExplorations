@@ -12,7 +12,7 @@ namespace CSharpExplorationsTests
         [Test]
         public void SquareDigitsTest()
         {
-            Assert.AreEqual(811181, CSharpExplorations.Program.SquareDigits(9119));
+            Assert.AreEqual(811181, CSharpExplorations.Challenges.SquareDigits(9119));
         }
     }
 }
