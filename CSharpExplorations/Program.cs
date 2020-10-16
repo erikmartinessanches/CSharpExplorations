@@ -1,4 +1,4 @@
-﻿
+
 using System;
 
 namespace CSharpExplorations
@@ -11,7 +11,9 @@ namespace CSharpExplorations
     {
         public static void Main(string[] args)
         {
+
             ConstructingAndDeconstructing();
+            NullExamples();
         }
 
         private static void ConstructingAndDeconstructing()
@@ -24,8 +26,22 @@ namespace CSharpExplorations
             octo.Eat(6);
 
             //Using properties with extra set and get logic.
-            octo.Length = 50; 
+            octo.Length = 50;
             Console.WriteLine(octo.Length);
+        }
+
+        private static void NullExamples()
+        {
+            int cantBeNull = 5;
+            //cantBeNull = null; //error, clearly
+            int? couldBeNull = null;
+            Console.WriteLine(couldBeNull); //Writes nothing
+            Console.WriteLine(couldBeNull.GetValueOrDefault()); //0
+            couldBeNull = 7;
+            Console.WriteLine(couldBeNull); //7
+            Console.WriteLine(couldBeNull.GetValueOrDefault()); //7
+            //couldBeNull = null;
+            int? y = couldBeNull;
         }
     }
 }
