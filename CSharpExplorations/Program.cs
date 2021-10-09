@@ -28,6 +28,11 @@ namespace CSharpExplorations
             //Using properties with extra set and get logic.
             octo.Length = 50;
             Console.WriteLine(octo.Length);
+
+            //Creating a Rectangle using deconstructing assignment in its
+            //constructor.
+            var rect = new Rectangle(3, 4);
+
         }
 
         private static void NullExamples()
