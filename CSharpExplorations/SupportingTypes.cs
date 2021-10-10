@@ -40,7 +40,7 @@ namespace CSharpExplorations
             weight = Weight;
         }
     }
-    class Rectangle
+    public class Rectangle
     {
         public readonly float Width, Height;
         /* We can use deconstructing assignment to simplify a constructor: */
@@ -51,5 +51,17 @@ namespace CSharpExplorations
             width = Width;
             height = Height;
         }
+    }
+
+    /**In order for functions to return refs to a field, they must be set up 
+    like so: */
+    public class RefReturns{
+        public static string x = "Old Value"; //public for demo purposes.
+        public static ref string GetX() => ref x; //Returns a ref.
+
+        //Ref returns can also be used when defining a property or indexer,
+        //such a property is implicitly writable:
+        public static ref string Prop => ref x; 
+        //(To prevent modification, use 'ref readonly' modifier).
     }
 }
