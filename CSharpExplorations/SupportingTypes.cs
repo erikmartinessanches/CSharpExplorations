@@ -31,14 +31,9 @@ namespace CSharpExplorations
         }
 
         /* A deconstructor assigns fields to variables. It must be called 
-         * 'Deconstruct' and have one or more 'out' parameters. 
+         * 'Deconstruct' and have one or more 'out' parameters. */
 
-        /* An 'out' argument is like a 'ref' except: 
-         * 
-         * *It need not be assigned before going into the function
-         * *It must be assigned before going out of the function
-         * 
-         */
+       
         public void Deconstruct(out int legs, out int weight)
         {
             legs = Legs;

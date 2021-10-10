@@ -14,6 +14,55 @@ namespace CSharpExplorations
 
             ConstructingAndDeconstructing();
             NullExamples();
+            Parameters();
+        }
+
+        /// <summary>
+        /// Learning about parameters and trying out out, ref, and in parameters.
+        /// </summary>
+        private static void Parameters()
+        {
+            //We have to tell this func is expecting a 'ref' param.
+            static void Foo(ref int p) 
+            {
+                p = p + 1;
+                Console.WriteLine(p);
+            }
+            /* To pass by reference, use 'ref' parameter modifier, p and x
+             * refer to the same memory location. */
+            int x = 8;
+            Foo(ref x); //Ask foo to deal directly with x and
+            //now assigning p a new value changes the contents of x.
+            Console.WriteLine(x); //9
+
+            /* BIG TAKEAWAY 
+             * 
+             * A param. can be passed by value or reference regardless 
+             * of whether the param is a reference ro value type.  
+             */
+
+            /* 'out' param modifier is mostly used to return multiple 
+             * return values from a function.
+             *  /* An 'out' argument is like a 'ref' except: 
+             * 
+             * * It need not be assigned before going into the function
+             * * It must be assigned before going out of the function
+            * 
+            */
+            // Notice how a, b don't have to be assigned before going into 
+            // the function.
+            string a, b;
+            Split("Erik Martines Sanches", out a, out b);
+            Console.WriteLine(a); // Erik
+            Console.WriteLine (b); // Martines Sanches
+
+            //We have to assign the out params before the come out of the func.
+            void Split(string name, out string firstName, out string lastNames)
+            {
+                int i = name.IndexOf(' ');
+                firstName = name.Substring(0, i);
+                lastNames = name.Substring(i + 1);
+            }
         }
 
         private static void ConstructingAndDeconstructing()
