@@ -66,21 +66,50 @@ namespace CSharpExplorations
     //(To prevent modification, use 'ref readonly' modifier).
   }
 
-  //Implementing an indexer.
+  //INDEXER IMPLEMENTATION
   public class Sentence
   {
     string[] words = "Perfect Dark is forever".Split();
 
-    public string this[int wordNum] //indexer
+    public string this[int wordNum]
     {
       get { return words[wordNum]; }
       set { words[wordNum] = value; } //'value' is implicit as usual.
-                                      //Omit set to make it read-only. 
-                                      //Multiple indexers with differently typed parameters are ok,
-                                      //even more than one parameter.
+    }
+    //Omit set to make it read-only. 
+    //Multiple indexers with differently typed parameters are ok,
+    //even more than one parameter.
+
+    public string this[Index index] => words[index];
+    public string[] this[Range range] => words[range];
+
+    ~Sentence()
+    {
+      Console.WriteLine("Finalizing.");
     }
   }
 
   public struct Point { public int X, Y; }
+
   public class Point2 { public int X, Y; }
+
+  /** COVARIANT RETURN TYPES
+   * We can override a method (or property get accessor) so that it returns a
+   * ~more derived~ (subclassed) type. */
+
+  public class Asset
+  {
+    public string Name;
+    //Clone must return an Asset.
+    public virtual Asset Clone() => new Asset { Name = Name };
+  }
+  public class House : Asset
+  {
+    public decimal Mortgage;
+    //Clone returns aHouse, which is an Asset and more.
+    public override House Clone() => new House { Name = Name, Mortgage = Mortgage };
+  }
+
+
+
 }

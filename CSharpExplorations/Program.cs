@@ -60,10 +60,53 @@ namespace CSharpExplorations
 
     private static void Types()
     {
+      //INDEXER USAGE
       Sentence s = new Sentence();
       Console.WriteLine(s[3]); //"forever"
       s[3] = "a blast";
       Console.WriteLine(s[3]); //"a blast"
+
+      Sentence s2 = new Sentence();
+      string[] firstTwo = s2[..2];
+      foreach (string str in firstTwo) Console.WriteLine(str);
+
+      /**   STATIC CLASSES AND STATIC CONSTRUCTORS
+       * Static constructors execute once per type rather than once per 
+       * instance, a type can have only one (must be parameterless) static 
+       * constructor and have the same name as the type. The static constructor
+       * is invoked just prior to the type being used.
+       * 
+       * Static classes can only be composed of static membersand cannot be
+       * subclassed.
+       * 
+       *    FINALIZERS
+       * are class-only methods that execute before the garbage collector 
+       * reclaims memory for an unreferenced onject. 
+       * 
+       *    PARTIAL TYPES AND METHODS
+       * Each participant (typically in different files) must have the 'partial' 
+       * declaration. Participants cannot have conflicting members. Partial
+       * types are resolved at compile time. One or more partial class 
+       * declarations can specify the same base class. Each participant can 
+       * independently specify interfaces to be implemented.
+       * 
+       * A partial type can contain partiavl methods, which must be void are 
+       * implicitly private. A partial method consists of two parts, a 
+       * definition (typically automatically generated) and an implementation 
+       * (typically hand-written). Cannot include 'out' parameters.
+       * 
+       *    ABSTRACT CLASSES AND ABSTRACT MEMBERS
+       * An abstract class can never be instantiated, only its concrete 
+       * ~subclasses~ can be instantiated. 
+       * 
+       * Abstract classes can contain abstract
+       * members which are like virtual members (can be overridden by 
+       * subclasses using 'override'), except they don't provide a default 
+       * implementation which must be provided by the subclass unless it itself 
+       * is abstract.
+       */
+
+
     }
 
     private static void Statements()
@@ -84,7 +127,7 @@ namespace CSharpExplorations
           Console.WriteLine("It's an int, (discarded it's value).");
           break;
         default:
-          Console.WriteLine("Uncertain abiut x's type.");
+          Console.WriteLine("Uncertain about x's type.");
           break;
       }
 
