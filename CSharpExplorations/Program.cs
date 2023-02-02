@@ -20,7 +20,7 @@ namespace CSharpExplorations
     private static void Arrays()
     {
       /* Elements are always stored in a contiguous block of memory. After 
-      xreating, it's length are unchageable. All arrays inherit from 
+      creating, it's length are unchageable. All arrays inherit from 
       System.Array class, providing common services. */
       char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
       /* When the element type is of ~value~ type, each element value is allocated
@@ -70,13 +70,19 @@ namespace CSharpExplorations
       string[] firstTwo = s2[..2];
       foreach (string str in firstTwo) Console.WriteLine(str);
 
+      /*CONST
+       * Constants are static fields that must be initialized with a value. 
+       They differ from 'static readonly' fields in that consts are evaluated at
+      compile time. 'static reaonly' fields can have different values per
+      application. */
+
       /**   STATIC CLASSES AND STATIC CONSTRUCTORS
        * Static constructors execute once per type rather than once per 
        * instance, a type can have only one (must be parameterless) static 
        * constructor and have the same name as the type. The static constructor
        * is invoked just prior to the type being used.
        * 
-       * Static classes can only be composed of static membersand cannot be
+       * Static classes can only be composed of static members and cannot be
        * subclassed.
        * 
        *    FINALIZERS
@@ -90,7 +96,7 @@ namespace CSharpExplorations
        * declarations can specify the same base class. Each participant can 
        * independently specify interfaces to be implemented.
        * 
-       * A partial type can contain partiavl methods, which must be void are 
+       * A partial type can contain partial methods, which must be void are 
        * implicitly private. A partial method consists of two parts, a 
        * definition (typically automatically generated) and an implementation 
        * (typically hand-written). Cannot include 'out' parameters.
