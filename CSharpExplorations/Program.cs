@@ -294,9 +294,9 @@ namespace CSharpExplorations
     {
       int cantBeNull = 5;
       //cantBeNull = null; //error, clearly
-      int? couldBeNull = null;
-      Console.WriteLine(couldBeNull); //Writes nothing
-      Console.WriteLine(couldBeNull.GetValueOrDefault()); //0
+      int? couldBeNull = null; //Nullable value type.
+      Console.WriteLine($"couldBeNull (int) is null and should print nothing: {couldBeNull}"); //Writes nothing
+      Console.WriteLine($"The default value of couldBeNull is {couldBeNull.GetValueOrDefault()}"); //0
       couldBeNull = 7;
       Console.WriteLine(couldBeNull); //7
       Console.WriteLine(couldBeNull.GetValueOrDefault()); //7
