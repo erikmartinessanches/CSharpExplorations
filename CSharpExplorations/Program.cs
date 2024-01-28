@@ -155,8 +155,9 @@ namespace CSharpExplorations
       string suite = "spades";
       string cardName2 = (cardNumber, suite) switch
       {
-        (13, "spades") => "King of spades",
-        (12, "spades") => "Queen of spades"
+          (13, "spades") => "King of spades",
+          (12, "spades") => "Queen of spades",
+          _ => throw new NotImplementedException()
       };
       Console.WriteLine(cardName2);
     }
