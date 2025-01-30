@@ -32,24 +32,23 @@ namespace CSharpExplorations
         {
             /*Storing seen elements in a hash map. */
             var numbersSeen = new HashSet<int>();
-            for (int i = 0; i < nums.Length - 1; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
-                numbersSeen.Add(nums[i]); //See if I can make use of Add() returning true/false.
-                if (numbersSeen.Contains(nums[i + 1]))
-                {
-                    return true;
-                }
+                if (!numbersSeen.Add(nums[i])) return true; // See if I can make use of Add() returning true/false.
+                // Add Returns:
+                // true if the element is added to the set; false if the element is already in the set.
             }
             return false;
-            /* Brute O(n^2 complexity):
-            for(int i = 0; i < nums.Length; i++){
-              for(int y = i+1; y < nums.Length; y++){
-                  if (nums[i] == nums[y]){
-                      return true;
-                  }
-               }
-            }
-            return false; */
+            //Brute O(n^2):
+            /*        for(int i = 0; i < nums.Length; i++){
+                        for(int y = i+1; y < nums.Length; y++){
+                            if (nums[i] == nums[y]){
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
+            */
         }
     }
 }
